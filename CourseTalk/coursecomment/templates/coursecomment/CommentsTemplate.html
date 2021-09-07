@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device width  initial-scale=1.0">
+  <script type="text/javascript" src="{% static 'coursecomment/CoursePage.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'coursecomment/button.css' %}">
+  <link rel="stylesheet" href="{% static 'coursecomment/font-awesome.css' %}">
+  <!--引入的字体与图标文件-->
+  <link rel="stylesheet" href="{% static 'coursecomment/CoursePage.css' %}">
+</head>
+
+<body onload="likeComment('{{comment_info.comment_obj.id}}');">
+  {% if course.teacher %}
+  <div class="surround">
+    <div>
+      <p id="courseid" style="padding-left: 70px;">
+      <div class="cid">教师姓名</div>
+      <div class="inputblock">{{course.teacher.teacher_name}}</div>
+    </div>
+    <br>
+    </p>
+    <p id="coursename" style="padding-left: 70px;">
+    <div class="cid">教师邮箱</div>
+    <div class="inputblock">{{course.teacher.teacher_contact}}</div>
+    </p>
+    <br>
+    <p id="score" style="padding-left: 70px;">
+    <div class="cid">教师平均分</div>
+    <div class="inputblock">{{course.teacher_average_score}}</div>
+    </p>
+    <br>
+    <p id="teachermark" style="padding-left: 70px;">
+    <div class="cid">课程评价</div>
+    <div class="inputblock">{{course.teacher_average_score}}</div>
+    </p>
+  </div>
+  {% endif %}
+  <div style="padding-left: 70px; padding-right: 60px;">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+       评论区
+    </div>
+    <div class="panel-body">
+  {% for comment_info in comments_info %}
+  <ul id="comment_{{comment_info.comment_obj.id}}">
+    <div id="comments2">{{comment_info.comment_obj.comment_text}}</div>
+    <div id="comment3">
+      <div id="commenttime">
+        {{comment_info.comment_obj.comment_time.year}}年{{comment_info.comment_obj.comment_time.month}}月{{comment_info.comment_obj.comment_time.day}}日
+      </div>
+      <div>
+        点赞数:<span id="like_num_{{comment_info.comment_obj.id}}">{{comment_info.comment_obj.total_likes}}</span>
+      </div>
+      <br>
+      <div class="row">
+      <button class="btn btn-default" id="like_{{comment_info.comment_obj.id}}" 
+      onclick="likeComment('{{comment_info.comment_obj.id}}');" style="outline:none;"
+        value="{{comment_info.is_liked}}">
+        <i id="fa_{{comment_info.comment_obj.id}}" class="fa fa-thumbs-up" aria-hidden="true"></i>
+      </button>
+      {% if comment_info.is_user %}
+      <button class="btn btn-default" id="delete_{{comment_info.comment_obj.id}}" style="outline:none;"
+        onclick="deleteComment('{{comment_info.comment_obj.id}}')">删除</button>
+      {% else %}
+      <button id="message_{{comment_info.comment_obj.id}}" class="btn btn-default" style="outline:none;"
+        onclick="window.location.href='/readMessageSender/{{comment_info.comment_obj.id}}'">私信</button>
+      </div>
+      {% endif %}
+    </div>
+  </ul>
+  {% endfor %}
+    </div>
+  </div>
+</div>
+  {% include "pagination.html" with page=comments_info %}
+  </div>
+</body>
+
+</html>

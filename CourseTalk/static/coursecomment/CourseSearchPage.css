@@ -1,0 +1,33 @@
+/*搜索栏*/
+.search-box {
+    width: 450px;
+    height: 40px;
+    margin: 40px;
+}
+.searchinput {
+    float: left;
+    width: 350px;
+    height: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 3px solid #66ccff;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    color: black;
+    outline: none;
+}
+.searchbutton {
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: #66CCFF;
+    border: 1px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 20px;
+    outline: none;
+}
+
+h1{
+    font-family: Kaiti;
+}

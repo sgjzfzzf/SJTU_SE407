@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+   <link rel="stylesheet" href="{% static 'coursecomment/ErrorPage.css' %}">
+   <link rel="stylesheet" href="{% static 'coursecomment/font-awesome.css' %}">
+
+</head>
+
+<body>
+  <div class="upchoose">
+        <a href="#"> 按条件筛选</a>
+        <a href="{% url 'search_main_page' %}">搜索</a>
+        <a href="{% url 'dashboard' %}" class="up">用户面板</a>
+        <a href="{% url 'logout' %}" class="up">登出</a>
+    </div>
+   <div></div>
+</body>

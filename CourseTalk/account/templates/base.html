@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+     <meta charset="UTF-8">
+     <link rel="icon" type="image/jpg" href="{% static 'account/jiaoxuan.jpg' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+    <!-- jQuery (Bootstrap 插件需要引入) -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 包含了所有编译插件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body
+        {
+        background-image:url("{% static 'account/back2.jpg' %}");
+        background-attachment: fixed;
+        background-size: cover;
+        }
+    </style>
+    {% block head %}
+    {% endblock head %}
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" 
+        style="-moz-box-shadow:0 0 8px rgb(109, 109, 109);-webkit-box-shadow:0 0 8px rgb(109, 109, 109);box-shadow:0 0 8px rgb(109, 109, 109);">
+        <div class="container-fluid"> 
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'search_main_page' %}">交选</a>
+            </div>
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left" style="font-size: 15px">  
+                        <li><a href="{% url 'search_main_page' %}"><span class="glyphicon glyphicon-search"></span> 搜索</a></li>
+                        <li><a href="{% url 'searchlist' %}"><span class="glyphicon glyphicon-random"></span> 按条件筛选</a></li>
+                        <li  class="active"><a href="{% url 'register' %}"><span class="glyphicon glyphicon-pencil"></span> 注册</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'logout' %}" style="font-size: 15px" class="tooltip-test" data-toggle="tooltip" 
+                            title="确认要登出吗？"><span class="glyphicon glyphicon-log-out"></span> 登出</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </div>
+    </div>
+    <script>
+        $(function () { $("[data-toggle='tooltip']").tooltip(); });
+    </script>
+    <br><br><br>
+    <div id="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

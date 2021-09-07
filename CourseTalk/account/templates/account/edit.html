@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}编辑账号{% endblock %}
+
+{% block content %}
+<div class="loginh1">编辑你的账号</div>
+<div class="login=form">
+    <p>你可以使用下面的表格来编辑账号:</p>
+    <form method="post" enctype="multipart/form-data">
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Save changes"></p>
+    </form>
+</div>
+{% endblock %}

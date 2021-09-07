@@ -1,0 +1,14 @@
+
+ button
+ {  
+    
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+   border-radius: 50%;
+   
+ }
+ i{
+       width: 30px;
+ }

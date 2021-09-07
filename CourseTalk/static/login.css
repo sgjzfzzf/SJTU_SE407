@@ -1,0 +1,70 @@
+ body{
+     background: url("src=http---img9.51tietu.net-pic-2019-091402-1gborvew0zc1gborvew0zc.jpg&refer=http---img9.51tietu.jpg");
+     background-repeat: no-repeat;
+     background-size: 100% auto;
+ }
+
+
+#login-box
+{ width: 40%;
+   border: 1px solid black;
+   height: 190px;
+   margin: 10% auto;
+  
+   text-align: center;
+   background: #00000060;
+ 
+}
+#login-box .form{
+        margin-top: 5px;
+        
+
+}
+#login-box .form .input input{
+      border: 0px;
+      border-bottom: 2px solid white;
+      padding: 4px 10px;
+      background-color: #ffffff00;
+      color: #ffffff;
+      margin-top: 5px;
+      font-size: 15px;
+      
+}
+#login-box button
+{   margin-top: 15px;
+   width: 100px;
+   height: 30px;
+
+
+}
+#login-box h2{
+     color: #ffffff;
+
+
+}
+#login-box .form .input i{
+  color: #ffffff;
+}
+ .upchoose
+ {       
+          line-height: 41px;
+         width: fit-content;
+         padding-left: 800px;
+          
+ }
+ a{
+        font-size: 14px;
+        color: white;
+        font-style:unset;
+        text-decoration: none;
+        display: inline-block;
+        height: auto;
+        padding: 0px 20px;
+
+ }
+ a:hover
+ {
+       background-color: grey;
+       color: #ffffff;
+
+ }

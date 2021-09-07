@@ -1,0 +1,59 @@
+{% extends "CourseCommentBase.html" %}
+{% load static %}
+{% block head %}
+<title>按条件筛选</title>
+<link rel="icon" type="image/jpg" href="{% static 'coursecomment/jiaoxuan.jpg' %}">
+<link rel="stylesheet" href="{% static 'coursecomment/Searchlist.css' %}">
+{% endblock head %}
+{% block body %}
+<div class="container" style="padding: 30px;">
+    <div class="jumbotron">
+        <div align='center'>
+            <h1 style="font-family: Kaiti;">按条件筛选</h1>
+            <form action="{% url 'searchlist_result' %}" , method="POST">
+                {% csrf_token %}
+                <p>
+                <div id="cid">学院</div>
+                <select name="colleage" id="inputbox">
+                    <option value="全部">全部</option>
+                    {% for colleage in colleages %}
+                    <option value="{{colleage}}">{{colleage}}</option>
+                    {% endfor %}
+                </select>
+                </p>
+
+                <p>
+                <div id="cid">学分</div>
+                <select name="credit" id="inputbox">
+                    <option value="全部">全部</option>
+                    {% for credit in credits %}
+                    <option value="{{credit}}">{{credit}}</option>
+                    {% endfor %}
+                </select>
+                </p>
+
+                <p>
+                <div id="cid">课程类别</div>
+                <select name="type" id="inputbox">
+                    <option value="全部">全部</option>
+                    <option value="必修课">必修课</option>
+                    <option value="通识课">通识课</option>
+                    <option value="通选课">通选课</option>
+                </select>
+                </p>
+
+                <p>
+                <div id="cid">排序方式</div>
+                <select name="order" id="inputbox">
+                    <option value="按照平均成绩从大到小">按照平均成绩从大到小</option>
+                    <option value="按照平均评分从大到小">按照平均评分从大到小</option>
+                </select>
+                </p>
+
+                <br>
+                <input type="submit" value="提交" class="btn">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

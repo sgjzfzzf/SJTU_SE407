@@ -1,0 +1,30 @@
+{% extends 'CourseCommentBase.html' %}
+
+{% block head %}
+{% endblock head %}
+
+{% block body %}
+<div class="container" style="padding: 30px;">
+    <div class="jumbotron">
+        {% for message in messages %}
+        <ul>
+            {% if request.user == message.sender %}
+            我&nbsp;&nbsp;&nbsp;&nbsp;:
+            {% else %}
+            对方:
+            {% endif %}
+            {{message.text}}|{{message.sendtime}}
+        </ul>
+        {% endfor %}
+    </div>
+    <form action="{% url 'send_message' comment_id %}" method="POST" class="form-inline">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="hidden" class="form-control" value=1 name="isSender">
+            <input type="textarea" name="message_text" class="form-control" placeholder="请输入内容">
+            <input type="submit" class="btn btn-success" value="确认">
+        </div>
+    </form>
+    <br>
+</div>
+{% endblock body %}

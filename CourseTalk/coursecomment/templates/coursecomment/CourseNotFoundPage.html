@@ -1,0 +1,15 @@
+{% extends 'CourseCommentBase.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'coursecomment/CoursePage.css' %}">
+{% endblock head %}
+
+{% block body %}
+</div>
+<div id="luckydog">
+    您搜索的课程不存在，请检查您的课程名称
+</div>
+<div id="dog">
+    <img src="{% static 'coursecomment/luckydog.jpg' %}">
+</div>
+{% endblock body %}

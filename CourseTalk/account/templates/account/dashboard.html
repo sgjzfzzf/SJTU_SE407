@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}用户面板{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron">
+        <div align='center'>
+            <h2 style="font-family: Kaiti;font-weight: bold;">用户面板</h2>
+            <br>
+            <!--搜索结果-->
+            {% if result_list %}
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">已评论</h3>
+                </div>
+                <ul class="list-group">
+                {% for result in result_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'course_page' result.course.course_id %}" 
+                    style="text-decoration:none;" class="text-muted">
+                        {{result.course.course_name }}
+                        {{result.course.course_id}}
+                        {{result.course.teacher.teacher_name}} {{result.course.course_colleage}}<br> {{result.comment_text}}
+                    </a>
+                </li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <h3>还未评论</h3> <br>
+            {% endif %}
+            <a href="{% url 'read_message_box' %}" style="text-decoration:none; font-size: 20px;">私信箱</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

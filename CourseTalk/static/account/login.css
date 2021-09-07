@@ -1,0 +1,31 @@
+#login-box
+{ width: 40%;
+   border: 1px solid black;
+   height: 190px;
+   margin: 10% auto;
+  
+   text-align: center;
+   background: #00000060;
+ 
+}
+#login-box .form{
+        margin-top: 5px;
+        
+
+}
+#login-box .form .input input{
+      border: 0px;
+      border-bottom: 2px solid;
+      padding: 4px 10px;
+      background-color: #ffffff00;
+      margin-top: 5px;
+      font-size: 15px;
+      
+}
+#login-box button
+{   margin-top: 15px;
+   width: 100px;
+   height: 30px;
+
+
+}

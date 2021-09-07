@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}注册成功{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div align='center'>
+            <p>欢迎 {{ new_user.first_name }}!</p>
+            <p>
+                你的账号已经创建成功。现在你可以 <a href="{% url 'login' %}" style="text-decoration: none;">登录</a>。
+            </p>
+</div>
+        </div>
+{% endblock %}

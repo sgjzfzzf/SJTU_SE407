@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+登录
+{% endblock title %}
+{% block content %}
+
+<div class="login-form">
+    <p>请使用下面的表格登录:</p>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Log in"></p>
+    </form>
+</div>
+{% endblock content %}

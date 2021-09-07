@@ -1,0 +1,29 @@
+body{
+    background: url(src=http---img.zcool.cn-community-01e0cf5b7e0f67a8012190f2dd7e24.png@1280w_1l_2o_100sh.png&refer=http---img.zcool.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+.upchoose
+{       
+         line-height: 41px;
+        width: fit-content;
+        padding-left: 800px;
+        border-bottom: white solid 1px;
+         
+}
+a{
+    font-size: 14px;
+    color: white;
+    font-style:unset;
+    text-decoration: none;
+    display: inline-block;
+    height: auto;
+    padding: 0px 20px;
+
+}
+a:hover
+{
+   background-color: red;
+   color: #ffffff;
+
+}

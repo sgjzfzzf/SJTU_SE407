@@ -1,0 +1,108 @@
+{% extends 'CourseCommentBase.html' %}
+{% load static %}
+
+{% block head %}
+<script type="text/javascript" src="{% static 'coursecomment/CoursePage.js' %}"></script>
+<link rel="stylesheet" href="{% static 'coursecomment/CoursePage.css' %}">
+<link rel="stylesheet" href="{% static 'coursecomment/button.css' %}">
+<link rel="stylesheet" href="{% static 'coursecomment/font-awesome.css' %}">
+{% endblock head %}
+
+{% block body %}
+<div class="container" style="padding: 30px;">
+    <div class="jumbotron">
+        <div class=surround>
+            <div id="choose_teacher1">
+                <div class="cid">任课教师</div>
+                <div class="inputblock">
+                    <select id="choose_teacher" onchange="whenChooseTeacher(this.id)">
+                        <option value="None" selected>未选择</option>
+                        {% for teacher in teachers %}
+                        <option value="{{teacher.teacher_name}}">{{teacher.teacher_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div id="inputclass">
+                <div id="courseid">
+                    <div class="cid">课程号</div>
+                    <div class="inputblock" id="course_id">{{course.course_id}}</div>
+                </div>
+                <div id="coursename">
+                    <div class="cid">课程名</div>
+                    <div class="inputblock">{{course.course_name}}</div>
+                </div>
+                <div id="score">
+                    <div class="cid">平均分</div>
+                    <div class="inputblock">{{course.average_score}}</div>
+                </div>
+            </div>
+            <div id="showmark">
+                <div class="cid">课程评价分</div>
+                <div class="inputblock">{{course.comment_mark}}
+                </div>
+            </div>
+            <br>
+            <br>
+            <div id="comments">
+                {% include "coursecomment/CommentsTemplate.html" %}
+            </div>
+            <div id="mark">
+                <form action="{% url 'submit_comment' course.course_id %}" method="POST">
+                    {% csrf_token %} <br>
+                    <br>
+                    <div>
+                        <div class="cid">
+                            授课教师
+                        </div>
+                        <div class="inputblock">
+                            {% for teacher in teachers %}
+                            <label><input type="radio" name="teacher_name" value="{{teacher.teacher_name}}"
+                                    class="inputcc">{{teacher.teacher_name}}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="cid">
+                            日期
+                        </div>
+                        <div class="inputblock">
+                            <input type="date" name="course_time" class="inputcc">
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="cid">
+                            评价分数
+                        </div>
+                        <div class="inputblock">
+                            <input type="number" name="course_mark" class="inputcc" placeholder="0-10">
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="cid">
+                            课程得分
+                        </div>
+                        <div class="inputblock">
+                            <input type="number" name="course_score" class="inputcc" placeholder="0-100">
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div>
+                            <div class="cid">课程评价</div><textarea class="inputpp" name="comment_text"
+                                required></textarea>
+                        </div>
+                        <div class="commit">
+                            <input type="submit" value=" 提 交 " class="btn btn-info btn-lg" style="outline: none;">
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,56 @@
+{% extends 'CourseCommentBase.html' %}
+{% load static %}
+{% block head %}
+<title>搜索结果</title>
+<link rel="icon" type="image/jpg" href="{% static 'coursecomment/jiaoxuan.jpg' %}">
+<link rel="stylesheet" href="{% static 'coursecomment/SearchResultPage.css' %}">
+{% endblock head %}
+
+
+{% block body %}
+<div class="container" style="padding: 30px;">
+    <div class="jumbotron">
+        <div align='center'>
+            <h1>搜索课程</h1>
+            <div class="search-box">
+                <form action="/searchResult/" method="GET" novalidate>
+                    <input type="text" name="result" placeholder="课程名/课程号" class="searchinput" required>
+                    <input type="submit" value="提交" class="searchbutton">
+                </form>
+            </div>
+            <!--/search-box-->
+        </div>
+
+        <div align='center'>
+            <!--搜索结果-->
+            {% if result_list %}
+            <h1 style="font-family: Kaiti;">查询结果</h1>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询到的课程</h3>
+            </div>
+            <ul class="list-group">
+                {% for result in result_list %}
+                <li class="list-group-item"><a href="{% url 'course_page'  result.course_id %}">
+                        {{ result.course_name }}
+                        {{result.course_id}}
+                        {{result.course_colleage}}
+                        学分:{{result.course_credit}} 课程评价:{{result.comment_mark}}</a>
+                </li>
+                <!--暂时显示课程名、课程号、老师姓名、学院、学分、评论分数-->
+                {% endfor %}
+                {% else %}
+            </ul>
+            <a href="{% url 'search_main_page' %}" class="tooltip-test" data-toggle="tooltip"
+                style="font-size: 40px; font-family: Kaiti; text-decoration: none;" title="请重新输入课程">
+                没有找到相关课程
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
+{% endblock body %}

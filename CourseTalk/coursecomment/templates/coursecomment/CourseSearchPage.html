@@ -1,0 +1,29 @@
+{% extends "CourseCommentBase.html" %}
+<!-- 课程搜索主页面 -->
+{% load static %}
+{% block head %}
+<title>搜索</title>
+<link rel="icon" type="image/jpg" href="{% static 'coursecomment/jiaoxuan.jpg' %}">
+<script type="text/javascript" src="{% static 'coursecomment/CoursePage.js' %}"></script>
+<link rel="stylesheet" href="{% static 'coursecomment/CourseSearchPage.css' %}">
+{% endblock head %}
+
+{% block body %}
+<div class="container" style="padding: 30px;">
+    <div class="jumbotron">
+        <div align='center'>
+            <h1>搜索课程</h1>
+            <div class="search-box">
+                <form action="/searchResult/" method="GET" novalidate>
+                    <input type="text" name="result" placeholder="课程名/课程号" class="searchinput" required>
+                    <input type="submit" value="提交" class="searchbutton">
+                </form>
+            </div>
+            <!--/search-box-->
+        </div>
+    </div>
+    <!--/jumbtron-->
+</div>
+<!--/container-->
+
+{% endblock body %}

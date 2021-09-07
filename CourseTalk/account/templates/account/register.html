@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}注册{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div align='center'>
+            <h2 style="font-family: Kaiti; font-weight: bold;">请注册你的账号</h2>
+            <br>
+            <form method="post">
+                <table class="table table-bordered" style="width: 400px;">
+                    <tr class="active">
+                        <td>{{ user_form.username.label_tag }}</td>
+                        <td>{{ user_form.username }}</td>
+                    </tr>
+
+                    <tr class="active">
+                        <td>{{ user_form.password.label_tag }}</td>
+                        <td>{{ user_form.password }}</td>
+                    </tr>
+                    <tr class="active">
+                        <td>{{ user_form.email.label_tag }}</td>
+                        <td>{{ user_form.email}}</td>
+                    </tr>
+                    <tr class="active">
+                        <td>{{ user_form.password2.label_tag }}</td>
+                        <td>{{ user_form.password2 }}</td>
+                    </tr>
+                </table>
+                {% csrf_token %}
+                <p><input type="submit" value="创建我的账号"class="btn btn-info" style="outline: none;"></p >
+        </div>
+    </div>
+</div>
+{% endblock %}

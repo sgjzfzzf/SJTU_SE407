@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+私信箱
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div style="padding-left: 100px;padding-right: 100px;">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">私信箱</h3>
+                </div>
+                <ul class="list-group">
+                {% for messages in messages_list %}
+                <li class="list-group-item">
+                    {% if messages.isSender %}
+                    <a href="{% url 'read_message_sender' messages.comment.pk %}" class="text-muted" style="text-decoration: none;">
+                        {{messages.comment}}</a>
+                    {% else %}
+                    <a href="{% url 'read_message_receiver' messages.comment.pk %}" class="text-muted" style="text-decoration: none;">
+                        {{messages.comment}}</a>
+                    {% endif %}
+                    {% if messages.haveread == False and messages.receiver == request.user %}
+                    你有新消息未读
+                    {% endif %}
+                </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

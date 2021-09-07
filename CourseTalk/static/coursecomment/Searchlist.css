@@ -1,0 +1,50 @@
+h1{
+    font-family: Kaiti;
+}
+form{
+    font-size: 15px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn{
+    width: 75px;
+    height: 40px;
+    color: white;
+    background-color: #66ccff;
+    border: 1px;
+    border-radius: 8px;
+    font-size: 18px;
+    outline: none;
+    
+}
+
+.btn:hover{
+    background-color: cornflowerblue;
+}
+
+#cid{
+    padding: 6px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: rgb(70, 70, 70);
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline;;
+}
+
+#inputbox{
+    display:inline ;
+    width: 100px;
+    height: 30px;
+    padding: 5px 10px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+

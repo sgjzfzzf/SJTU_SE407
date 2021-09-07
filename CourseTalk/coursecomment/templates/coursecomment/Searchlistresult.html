@@ -1,0 +1,37 @@
+{% extends "CourseCommentBase.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+{% block head %}
+<link rel="icon" type="image/jpg" href="{% static 'coursecomment/jiaoxuan.jpg' %}">
+<link rel="stylesheet" href="{% static 'coursecomment/Searchlistresult.css' %}">
+{% endblock head %}
+
+{% block body %}
+<div class="container" style="padding: 30px;">
+    <div class="jumbotron">
+        <div align='center'>
+            <!--搜索结果-->
+            {% if course_list %}
+            <h1 style="font-family: Kaiti;">筛选结果</h1>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询到的课程</h3>
+            </div>
+            <ul class="list-group">
+                {% for item in course_list %}
+                <li class="list-group-item"><a
+                        href="{% url 'course_page' item.course_id %}">{{item.course_name}}:平均评分{{item.comment_mark}}
+                        平均成绩
+                        {{item.average_score}}</a></li>
+                {% endfor %}
+                {% else %}
+            </ul>
+            <h1 style="font-family: Kaiti;">没有找到相应课程</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock body %}
